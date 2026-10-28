@@ -18,7 +18,8 @@ models/
 *.pkl
 
 # Generated reports
-reports/figures/
+reports/figures/*
+!reports/figures/*.png
 reports/*.csv
 reports/*.json
 
