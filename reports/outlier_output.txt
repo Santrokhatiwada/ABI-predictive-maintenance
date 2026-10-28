@@ -1,0 +1,33 @@
+=== DESCRIPTIVE STATISTICS ===
+              count     mean     std      min     0.1%       1%       5%      25%      50%      75%      95%      99%    99.9%      max   skew  n_negative  n_zero
+volt       876100.0  170.778  15.509   97.334  123.830  135.397  145.614  160.305  170.607  181.004  196.549  208.132  222.472  255.125  0.087           0       0
+rotate     876100.0  446.605  52.674  138.432  264.392  316.766  358.598  412.306  447.558  482.177  531.334  565.513  603.796  695.021 -0.142           0       0
+pressure   876100.0  100.859  11.049   51.237   69.170   76.845   83.701   93.498  100.426  107.555  119.446  131.701  145.625  185.952  0.403           0       0
+vibration  876100.0   40.385   5.370   14.877   24.602   28.446   31.864   36.777   40.237   43.785   49.383   54.241   60.675   76.791  0.249           0       0
+
+=== OUTLIER SUMMARY ===
+   sensor      q1      q3  lower_fence_1.5  upper_fence_1.5  n_beyond_1.5_IQR  pct_beyond_1.5_IQR  n_beyond_3_IQR  n_robust_z_gt_3.5     min     max
+     volt 160.305 181.004          129.256          212.054              7466               0.852              18                803  97.334 255.125
+   rotate 412.306 482.177          307.499          586.983              8568               0.978              48               1129 138.432 695.021
+ pressure  93.498 107.555           72.413          128.641             15587               1.779             381               4195  51.237 185.952
+vibration  36.777  43.785           26.266           54.296             11111               1.268             181               2149  14.877  76.791
+
+Readings in the 24h before a failure: 17902 of 876100 (2.04%)
+
+=== OUTLIER RATE: NORMAL vs 24h BEFORE FAILURE ===
+   sensor  outlier_rate_normal_%  outlier_rate_prefailure_%  ratio_pre_vs_normal  median_normal  median_prefailure
+     volt                  0.808                      2.977                 3.69        170.525            175.302
+   rotate                  0.898                      4.821                 5.37        447.992            420.892
+ pressure                  1.650                      7.954                 4.82        100.377            103.316
+vibration                  1.164                      6.273                 5.39         40.207             42.069
+
+=== TOP 5 MACHINES BY OUTLIER COUNT ===
+            volt_outlier  rotate_outlier  pressure_outlier  vibration_outlier  total
+machine_id                                                                          
+98                    97              98               235                125    555
+21                    88              83               186                179    536
+99                    71             102               208                149    530
+31                    97              89               231                 93    510
+22                    69             103               224                113    509
+
+Saved /Users/santrokhatiwada/Documents/MAT/SEM 1/Data Analytics/Assignment 2/abi_pdm/reports/figures/sensor_boxplots.png

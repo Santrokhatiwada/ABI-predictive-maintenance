@@ -1,0 +1,119 @@
+=== ROW COUNTS ===
+telemetry    876100
+errors         3919
+maint          3286
+failures        761
+machines        100
+
+machine age:
+ count    100.00
+mean      11.33
+std        5.86
+min        0.00
+25%        6.75
+50%       12.00
+75%       16.00
+max       20.00
+
+machines per model:
+ model
+model1    16
+model2    17
+model3    35
+model4    32
+
+errors by type:
+ error_id
+error1    1010
+error2     988
+error3     838
+error4     727
+error5     356
+
+failures by component:
+ failed_component
+comp1    192
+comp2    259
+comp3    131
+comp4    179
+
+maintenance by component:
+ component
+comp1    804
+comp2    863
+comp3    808
+comp4    811
+
+failures by month:
+ datetime
+2015-01    94
+2015-02    50
+2015-03    59
+2015-04    69
+2015-05    64
+2015-06    58
+2015-07    64
+2015-08    64
+2015-09    59
+2015-10    59
+2015-11    62
+2015-12    59
+Freq: M
+
+failures per machine:
+ count    100.00
+mean       7.61
+std        3.60
+min        0.00
+25%        5.00
+50%        7.00
+75%       10.00
+max       19.00
+machines with zero failures: 2
+rows with a failure sharing machine+timestamp with another failure row: 84
+maintenance events before telemetry start: 400
+
+MISSING VALUES per table (all tables):
+  telemetry: 0 missing cells
+  errors: 0 missing cells
+  maint: 0 missing cells
+  failures: 0 missing cells
+  machines: 0 missing cells
+saved /Users/santrokhatiwada/Documents/MAT/SEM 1/Data Analytics/Assignment 2/abi_pdm/reports/figures/eda01_sensor_histograms.png
+saved /Users/santrokhatiwada/Documents/MAT/SEM 1/Data Analytics/Assignment 2/abi_pdm/reports/figures/eda02_sensor_trend_machine.png
+saved /Users/santrokhatiwada/Documents/MAT/SEM 1/Data Analytics/Assignment 2/abi_pdm/reports/figures/eda03_machine_age_model.png
+saved /Users/santrokhatiwada/Documents/MAT/SEM 1/Data Analytics/Assignment 2/abi_pdm/reports/figures/eda04_error_frequency.png
+saved /Users/santrokhatiwada/Documents/MAT/SEM 1/Data Analytics/Assignment 2/abi_pdm/reports/figures/eda05_failure_frequency.png
+saved /Users/santrokhatiwada/Documents/MAT/SEM 1/Data Analytics/Assignment 2/abi_pdm/reports/figures/eda06_failures_by_model.png
+
+failures per machine by model:
+          mean   std  count
+model                     
+model1  11.81  3.04     16
+model2   9.88  2.93     17
+model3   6.31  2.13     35
+model4   5.72  3.15     32
+
+corr(age, failures per machine): 0.466
+saved /Users/santrokhatiwada/Documents/MAT/SEM 1/Data Analytics/Assignment 2/abi_pdm/reports/figures/eda07_maintenance_frequency.png
+saved /Users/santrokhatiwada/Documents/MAT/SEM 1/Data Analytics/Assignment 2/abi_pdm/reports/figures/eda08_prefailure_profile.png
+
+standardised mean by hours-before-failure (selected):
+        volt  rotate  pressure  vibration
+h                                       
+0.0   0.301  -0.466     0.413      0.500
+6.0   0.292  -0.541     0.358      0.452
+12.0  0.375  -0.475     0.402      0.459
+24.0  0.374  -0.582     0.348      0.425
+48.0  0.322  -0.482     0.423      0.431
+72.0  0.014  -0.001     0.010     -0.020
+saved /Users/santrokhatiwada/Documents/MAT/SEM 1/Data Analytics/Assignment 2/abi_pdm/reports/figures/eda09_correlation.png
+
+Spearman correlation:
+                  volt  rotate  pressure  vibration  prefailure_24h
+volt            1.000  -0.001     0.002      0.002           0.041
+rotate         -0.001   1.000     0.000     -0.003          -0.064
+pressure        0.002   0.000     1.000      0.001           0.040
+vibration       0.002  -0.003     0.001      1.000           0.048
+prefailure_24h  0.041  -0.064     0.040      0.048           1.000
+saved /Users/santrokhatiwada/Documents/MAT/SEM 1/Data Analytics/Assignment 2/abi_pdm/reports/figures/interactive_machine.html

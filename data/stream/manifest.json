@@ -1,0 +1,209 @@
+{
+  "drift_sensor": "volt",
+  "drift_offset": 20.0,
+  "drift_start_batch": 5,
+  "batches": [
+    {
+      "batch": 1,
+      "tag": "batch_01",
+      "start": "2015-09-01 00:00:00",
+      "end": "2015-09-07 23:00:00",
+      "rows": 16800,
+      "errors": 81,
+      "maint": 61,
+      "failures": 19,
+      "synthetic_drift_injected": false
+    },
+    {
+      "batch": 2,
+      "tag": "batch_02",
+      "start": "2015-09-08 00:00:00",
+      "end": "2015-09-14 23:00:00",
+      "rows": 16800,
+      "errors": 78,
+      "maint": 57,
+      "failures": 17,
+      "synthetic_drift_injected": false,
+      "variants": {
+        "spike_machine": 1,
+        "error_burst_machine": 2
+      }
+    },
+    {
+      "batch": 3,
+      "tag": "batch_03",
+      "start": "2015-09-15 00:00:00",
+      "end": "2015-09-21 23:00:00",
+      "rows": 16800,
+      "errors": 69,
+      "maint": 63,
+      "failures": 11,
+      "synthetic_drift_injected": false
+    },
+    {
+      "batch": 4,
+      "tag": "batch_04",
+      "start": "2015-09-22 00:00:00",
+      "end": "2015-09-28 23:00:00",
+      "rows": 16800,
+      "errors": 68,
+      "maint": 40,
+      "failures": 9,
+      "synthetic_drift_injected": false
+    },
+    {
+      "batch": 5,
+      "tag": "batch_05",
+      "start": "2015-09-29 00:00:00",
+      "end": "2015-10-05 23:00:00",
+      "rows": 16800,
+      "errors": 85,
+      "maint": 63,
+      "failures": 15,
+      "synthetic_drift_injected": true
+    },
+    {
+      "batch": 6,
+      "tag": "batch_06",
+      "start": "2015-10-06 00:00:00",
+      "end": "2015-10-12 23:00:00",
+      "rows": 16800,
+      "errors": 81,
+      "maint": 39,
+      "failures": 6,
+      "synthetic_drift_injected": true
+    },
+    {
+      "batch": 7,
+      "tag": "batch_07",
+      "start": "2015-10-13 00:00:00",
+      "end": "2015-10-19 23:00:00",
+      "rows": 16800,
+      "errors": 90,
+      "maint": 69,
+      "failures": 20,
+      "synthetic_drift_injected": true
+    },
+    {
+      "batch": 8,
+      "tag": "batch_08",
+      "start": "2015-10-20 00:00:00",
+      "end": "2015-10-26 23:00:00",
+      "rows": 16800,
+      "errors": 73,
+      "maint": 35,
+      "failures": 9,
+      "synthetic_drift_injected": true
+    },
+    {
+      "batch": 9,
+      "tag": "batch_09",
+      "start": "2015-10-27 00:00:00",
+      "end": "2015-11-02 23:00:00",
+      "rows": 16800,
+      "errors": 74,
+      "maint": 72,
+      "failures": 19,
+      "synthetic_drift_injected": true
+    },
+    {
+      "batch": 10,
+      "tag": "batch_10",
+      "start": "2015-11-03 00:00:00",
+      "end": "2015-11-09 23:00:00",
+      "rows": 16800,
+      "errors": 71,
+      "maint": 45,
+      "failures": 10,
+      "synthetic_drift_injected": true
+    },
+    {
+      "batch": 11,
+      "tag": "batch_11",
+      "start": "2015-11-10 00:00:00",
+      "end": "2015-11-16 23:00:00",
+      "rows": 16800,
+      "errors": 73,
+      "maint": 66,
+      "failures": 10,
+      "synthetic_drift_injected": true
+    },
+    {
+      "batch": 12,
+      "tag": "batch_12",
+      "start": "2015-11-17 00:00:00",
+      "end": "2015-11-23 23:00:00",
+      "rows": 16800,
+      "errors": 65,
+      "maint": 42,
+      "failures": 14,
+      "synthetic_drift_injected": true
+    },
+    {
+      "batch": 13,
+      "tag": "batch_13",
+      "start": "2015-11-24 00:00:00",
+      "end": "2015-11-30 23:00:00",
+      "rows": 16800,
+      "errors": 76,
+      "maint": 65,
+      "failures": 21,
+      "synthetic_drift_injected": true
+    },
+    {
+      "batch": 14,
+      "tag": "batch_14",
+      "start": "2015-12-01 00:00:00",
+      "end": "2015-12-07 23:00:00",
+      "rows": 16800,
+      "errors": 56,
+      "maint": 52,
+      "failures": 7,
+      "synthetic_drift_injected": true
+    },
+    {
+      "batch": 15,
+      "tag": "batch_15",
+      "start": "2015-12-08 00:00:00",
+      "end": "2015-12-14 23:00:00",
+      "rows": 16800,
+      "errors": 78,
+      "maint": 52,
+      "failures": 17,
+      "synthetic_drift_injected": true
+    },
+    {
+      "batch": 16,
+      "tag": "batch_16",
+      "start": "2015-12-15 00:00:00",
+      "end": "2015-12-21 23:00:00",
+      "rows": 16800,
+      "errors": 84,
+      "maint": 56,
+      "failures": 13,
+      "synthetic_drift_injected": true
+    },
+    {
+      "batch": 17,
+      "tag": "batch_17",
+      "start": "2015-12-22 00:00:00",
+      "end": "2015-12-28 23:00:00",
+      "rows": 16800,
+      "errors": 79,
+      "maint": 53,
+      "failures": 13,
+      "synthetic_drift_injected": true
+    },
+    {
+      "batch": 18,
+      "tag": "batch_18",
+      "start": "2015-12-29 00:00:00",
+      "end": "2016-01-01 06:00:00",
+      "rows": 7900,
+      "errors": 27,
+      "maint": 40,
+      "failures": 9,
+      "synthetic_drift_injected": true
+    }
+  ]
+}

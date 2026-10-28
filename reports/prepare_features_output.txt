@@ -1,0 +1,22 @@
+rows after feature build (warm-up removed): 873800
+dropped: 2400 rows without 24h of future data; 702 rows at the failure moment
+final rows: 870698
+
+Top 5 |correlation| with label (investigate anything > 0.5):
+ error5_count_24h    0.350
+error3_count_24h    0.342
+error2_count_24h    0.303
+rotate_mean_24h     0.222
+error1_count_24h    0.212
+
+           rows  positives               first                last  positive_rate_%  failure_events
+split                                                                                             
+purged    4794        108 2015-08-31 00:00:00 2015-10-31 23:00:00            2.253               4
+test    144586       2682 2015-11-01 00:00:00 2015-12-31 06:00:00            1.855             111
+train   577427      11337 2015-01-02 05:00:00 2015-08-30 23:00:00            1.963             476
+val     143891       2652 2015-09-01 00:00:00 2015-10-30 23:00:00            1.843             111
+
+missing values in feature columns (hours_since_* may legitimately be NaN):
+Series([], )
+
+saved feature_table.parquet (36 feature columns) and feature_meta.json

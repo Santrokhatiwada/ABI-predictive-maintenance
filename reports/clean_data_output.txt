@@ -1,0 +1,129 @@
+RELOAD CHECK PASSED for all 5 cleaned files
+
+=== CLEANING LOG (rows before/after each step) ===
+     file                      step  rows_before  rows_after  rows_removed                                                                decision
+ machines                    loaded          100         100             0                                                   raw rows read as text
+ machines       drop_bad_machine_id          100         100             0                  machine_id missing or not a whole number: row unusable
+ machines     drop_exact_duplicates          100         100             0                               identical rows carry no extra information
+ machines drop_duplicate_machine_id          100         100             0       machine_id must be unique; first row kept, all copies quarantined
+telemetry                    loaded       876100      876100             0                                                   raw rows read as text
+telemetry         drop_unusable_key       876100      876100             0    machine_id or datetime missing/invalid: cannot place reading in time
+telemetry      drop_unknown_machine       876100      876100             0                  machine_id not in machines table: cannot join metadata
+telemetry     drop_exact_duplicates       876100      876100             0                               identical rows carry no extra information
+telemetry      drop_conflicting_key       876100      876100             0 same machine+hour, different values: first kept, all copies quarantined
+   errors                    loaded         3919        3919             0                                                   raw rows read as text
+   errors   drop_missing_key_fields         3919        3919             0                   an event without machine, time or type cannot be used
+   errors      drop_unknown_machine         3919        3919             0                                        machine_id not in machines table
+   errors     drop_duplicate_events         3919        3919             0                              same machine, time and type recorded twice
+    maint                    loaded         3286        3286             0                                                   raw rows read as text
+    maint   drop_missing_key_fields         3286        3286             0                   an event without machine, time or type cannot be used
+    maint      drop_unknown_machine         3286        3286             0                                        machine_id not in machines table
+    maint     drop_duplicate_events         3286        3286             0                              same machine, time and type recorded twice
+ failures                    loaded          761         761             0                                                   raw rows read as text
+ failures   drop_missing_key_fields          761         761             0                   an event without machine, time or type cannot be used
+ failures      drop_unknown_machine          761         761             0                                        machine_id not in machines table
+ failures     drop_duplicate_events          761         761             0                              same machine, time and type recorded twice
+ machines                     saved          100         100             0                                       data/clean/machines_clean.parquet
+telemetry                     saved       876100      876100             0                                      data/clean/telemetry_clean.parquet
+   errors                     saved         3919        3919             0                                         data/clean/errors_clean.parquet
+    maint                     saved         3286        3286             0                                          data/clean/maint_clean.parquet
+ failures                     saved          761         761             0                                       data/clean/failures_clean.parquet
+
+=== MEASURED FACTS ===
+cross.errors_after_telemetry_end: 0
+cross.errors_before_telemetry_start: 0
+cross.errors_rows: 3919
+cross.errors_without_telemetry_row_at_same_machine_hour: 0
+cross.failures_after_telemetry_end: 0
+cross.failures_before_telemetry_start: 0
+cross.failures_rows: 761
+cross.failures_without_telemetry_row_at_same_machine_hour: 0
+cross.machines_with_no_errors: 0
+cross.machines_with_no_failures: 2
+cross.machines_with_no_maint: 0
+cross.machines_without_telemetry: 0
+cross.maint_after_telemetry_end: 0
+cross.maint_before_telemetry_start: 400
+cross.maint_rows: 3286
+cross.maint_without_telemetry_row_at_same_machine_hour: 400
+errors.datetime_missing_or_unparseable: 0
+errors.datetime_needed_fallback_parser: 0
+errors.error_id_not_matching_errorN: 0
+errors.error_id_value_counts: {'error1': 1010, 'error2': 988, 'error3': 838, 'error4': 727, 'error5': 356}
+errors.error_id_values_changed_by_text_normalisation: 0
+errors.first_timestamp: 2015-01-01 06:00:00
+errors.last_timestamp: 2016-01-01 05:00:00
+errors.machine_id_missing_in_raw: 0
+errors.machine_id_non_numeric_text: 0
+errors.raw_rows: 3919
+errors.rows_sharing_machine_and_timestamp_with_another_row: 577
+failures.datetime_missing_or_unparseable: 0
+failures.datetime_needed_fallback_parser: 0
+failures.failed_component_not_matching_compN: 0
+failures.failed_component_value_counts: {'comp1': 192, 'comp2': 259, 'comp3': 131, 'comp4': 179}
+failures.failed_component_values_changed_by_text_normalisation: 0
+failures.first_timestamp: 2015-01-02 03:00:00
+failures.last_timestamp: 2015-12-31 06:00:00
+failures.machine_id_missing_in_raw: 0
+failures.machine_id_non_numeric_text: 0
+failures.raw_rows: 761
+failures.rows_sharing_machine_and_timestamp_with_another_row: 84
+machines.age_max: 20.0
+machines.age_min: 0.0
+machines.age_missing: 0
+machines.age_missing_in_raw: 0
+machines.age_negative: 0
+machines.age_non_numeric_text: 0
+machines.machine_id_missing_in_raw: 0
+machines.machine_id_non_numeric_text: 0
+machines.model_missing: 0
+machines.model_value_counts: {'model1': 16, 'model2': 17, 'model3': 35, 'model4': 32}
+machines.model_values_changed_by_text_normalisation: 0
+machines.raw_rows: 100
+maint.component_not_matching_compN: 0
+maint.component_value_counts: {'comp1': 804, 'comp2': 863, 'comp3': 808, 'comp4': 811}
+maint.component_values_changed_by_text_normalisation: 0
+maint.datetime_missing_or_unparseable: 0
+maint.datetime_needed_fallback_parser: 0
+maint.first_timestamp: 2014-06-01 06:00:00
+maint.last_timestamp: 2016-01-01 06:00:00
+maint.machine_id_missing_in_raw: 0
+maint.machine_id_non_numeric_text: 0
+maint.raw_rows: 3286
+maint.rows_sharing_machine_and_timestamp_with_another_row: 1514
+telemetry.datetime_missing_or_unparseable: 0
+telemetry.datetime_needed_fallback_parser: 0
+telemetry.first_timestamp: 2015-01-01 06:00:00
+telemetry.last_timestamp: 2016-01-01 06:00:00
+telemetry.machine_id_missing_in_raw: 0
+telemetry.machine_id_non_numeric_text: 0
+telemetry.machines_with_hour_gaps: 0
+telemetry.machines_with_telemetry: 100
+telemetry.pressure_infinite_values_set_to_nan: 0
+telemetry.pressure_missing_after_cleaning: 0
+telemetry.pressure_missing_in_raw: 0
+telemetry.pressure_negative_values: 0
+telemetry.pressure_non_numeric_text: 0
+telemetry.raw_rows: 876100
+telemetry.rotate_infinite_values_set_to_nan: 0
+telemetry.rotate_missing_after_cleaning: 0
+telemetry.rotate_missing_in_raw: 0
+telemetry.rotate_negative_values: 0
+telemetry.rotate_non_numeric_text: 0
+telemetry.rows_per_machine_max: 8761
+telemetry.rows_per_machine_min: 8761
+telemetry.rows_with_all_sensors_missing: 0
+telemetry.timestamps_not_on_the_hour: 0
+telemetry.total_missing_hours: 0
+telemetry.vibration_infinite_values_set_to_nan: 0
+telemetry.vibration_missing_after_cleaning: 0
+telemetry.vibration_missing_in_raw: 0
+telemetry.vibration_negative_values: 0
+telemetry.vibration_non_numeric_text: 0
+telemetry.volt_infinite_values_set_to_nan: 0
+telemetry.volt_missing_after_cleaning: 0
+telemetry.volt_missing_in_raw: 0
+telemetry.volt_negative_values: 0
+telemetry.volt_non_numeric_text: 0
+
+Quarantine files written: 0

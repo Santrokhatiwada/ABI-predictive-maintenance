@@ -1,0 +1,35 @@
+# Python environment
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Raw and generated datasets
+data/clean/
+data/features/
+demo_input.csv
+
+# Trained models and generated model artifacts
+models/
+*.joblib
+*.pkl
+
+# Generated reports
+reports/figures/
+reports/*.csv
+reports/*.json
+
+# Logs and local secrets
+logs/
+.env
+.DS_Store
+
+# Generated database and derived datasets
+data/warehouse/*.duckdb
+data/warehouse/*.wal
+data/clean/
+data/features/
+reports/predictions*.parquet
