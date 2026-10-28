@@ -1,0 +1,27 @@
+file,step,rows_before,rows_after,rows_removed,decision
+machines,loaded,100,100,0,raw rows read as text
+machines,drop_bad_machine_id,100,100,0,machine_id missing or not a whole number: row unusable
+machines,drop_exact_duplicates,100,100,0,identical rows carry no extra information
+machines,drop_duplicate_machine_id,100,100,0,"machine_id must be unique; first row kept, all copies quarantined"
+telemetry,loaded,876100,876100,0,raw rows read as text
+telemetry,drop_unusable_key,876100,876100,0,machine_id or datetime missing/invalid: cannot place reading in time
+telemetry,drop_unknown_machine,876100,876100,0,machine_id not in machines table: cannot join metadata
+telemetry,drop_exact_duplicates,876100,876100,0,identical rows carry no extra information
+telemetry,drop_conflicting_key,876100,876100,0,"same machine+hour, different values: first kept, all copies quarantined"
+errors,loaded,3919,3919,0,raw rows read as text
+errors,drop_missing_key_fields,3919,3919,0,"an event without machine, time or type cannot be used"
+errors,drop_unknown_machine,3919,3919,0,machine_id not in machines table
+errors,drop_duplicate_events,3919,3919,0,"same machine, time and type recorded twice"
+maint,loaded,3286,3286,0,raw rows read as text
+maint,drop_missing_key_fields,3286,3286,0,"an event without machine, time or type cannot be used"
+maint,drop_unknown_machine,3286,3286,0,machine_id not in machines table
+maint,drop_duplicate_events,3286,3286,0,"same machine, time and type recorded twice"
+failures,loaded,761,761,0,raw rows read as text
+failures,drop_missing_key_fields,761,761,0,"an event without machine, time or type cannot be used"
+failures,drop_unknown_machine,761,761,0,machine_id not in machines table
+failures,drop_duplicate_events,761,761,0,"same machine, time and type recorded twice"
+machines,saved,100,100,0,data/clean/machines_clean.parquet
+telemetry,saved,876100,876100,0,data/clean/telemetry_clean.parquet
+errors,saved,3919,3919,0,data/clean/errors_clean.parquet
+maint,saved,3286,3286,0,data/clean/maint_clean.parquet
+failures,saved,761,761,0,data/clean/failures_clean.parquet

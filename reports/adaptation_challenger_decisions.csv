@@ -1,0 +1,3 @@
+after_batch,challenger,champion,train_period,val_period,champion_pr_auc,challenger_pr_auc,champion_f1,challenger_f1,decision
+4,v2,v1,"('2015-07-30 23:00:00', '2015-09-12 22:00:00')","('2015-09-13 23:00:00', '2015-09-27 23:00:00')",1.0,1.0,1.0,1.0,rejected
+12,v3,v1,"('2015-09-24 23:00:00', '2015-11-07 22:00:00')","('2015-11-08 23:00:00', '2015-11-22 23:00:00')",0.9643,1.0,0.9611,0.9991,promoted

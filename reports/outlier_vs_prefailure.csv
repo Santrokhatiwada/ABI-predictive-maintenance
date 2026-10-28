@@ -1,0 +1,5 @@
+sensor,outlier_rate_normal_%,outlier_rate_prefailure_%,ratio_pre_vs_normal,median_normal,median_prefailure
+volt,0.808,2.977,3.69,170.525,175.302
+rotate,0.898,4.821,5.37,447.992,420.892
+pressure,1.65,7.954,4.82,100.377,103.316
+vibration,1.164,6.273,5.39,40.207,42.069
