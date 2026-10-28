@@ -534,7 +534,7 @@ h2, h3 {font-size: 16px !important; font-weight: 600 !important; color: #333; ma
 def page_title(title: str, sub: str = "") -> None:
     st.markdown(f"<div class='page-title'>{title}</div><div class='page-sub'>{sub}</div>", unsafe_allow_html=True)
 
-PAGES = ["Overview", "Machines", "Failures and errors", "Model accuracy", "Model updates", "Add data"]
+PAGES = ["Overview", "Machines", "Failures and errors", "Model accuracy",  "System architecture", "Model updates", "Add data"]
 DRIFT_TXT = {"stable": "no change", "watch": "small change", "alert": "big change"}
 PERF_TXT = {"ok": "working well", "degraded": "getting worse", "insufficient_labels": "not enough results yet"}
 
@@ -757,6 +757,77 @@ def page_performance():
                "but usually misses more failures. Use the slider to see the trade-off. Neighbouring hours are similar, so do not read too much into small differences.")
 
 
+
+# ==================================================================
+# 5. SYSTEM ARCHITECTURE
+def page_architecture():
+    page_title(
+        "System architecture",
+        "Visual overview of the predictive maintenance system, data warehouse, "
+        "and adaptive learning process."
+    )
+
+    architecture_figures = [
+        (
+            "Figure 1. Overall system architecture",
+            "figure_A_architecture.png",
+            "Shows how machine sensor data, data processing, the DuckDB warehouse, "
+            "machine-learning predictions, and the Streamlit dashboard connect."
+        ),
+        (
+            "Figure 2. Data warehouse architecture",
+            "figure_B_warehouse.png",
+            "Shows how raw telemetry, error, maintenance, and failure records are "
+            "processed and organised for analytics and model predictions."
+        ),
+        (
+            "Figure 3. Adaptive learning workflow",
+            "figure_C_adaptive.png",
+            "Shows how new data is monitored for drift, predictions are evaluated "
+            "against actual outcomes, and a replacement model is tested before promotion."
+        ),
+    ]
+
+    
+    
+    for title, filename, description in architecture_figures:
+        figure_path = FIG / filename
+
+        st.subheader(title)
+        st.caption(description)
+
+        if figure_path.exists():
+            if filename in (
+                "figure_A_architecture.png",
+                "figure_C_adaptive.png",
+            ):
+                # Smaller image, centred on the page
+                col1, col2, col3 = st.columns([1, 1, 1])
+                with col2:
+                    st.image(
+                        str(figure_path),
+                        width=250,
+                        output_format="PNG"
+                    )
+            else:
+                # Figure B keeps its larger size
+                col1, col2, col3 = st.columns([1, 2, 1])
+                with col2:
+                    st.image(
+                        str(figure_path),
+                        width="stretch",
+                        output_format="PNG"
+                    )
+        else:
+            st.warning(
+                f"Figure not found: {figure_path}. "
+                "Save the diagram using this exact filename."
+            )
+
+        st.divider()
+
+
+
 # ================================================================== 5. MONITORING & MODEL MANAGEMENT
 def page_monitoring():
     page_title("Model updates", "Whether the model still works, and training a replacement.")
@@ -962,6 +1033,12 @@ def page_data():
         except Exception as ex:
             st.error(f"We could not use that results file: {ex}")
 
-
-{PAGES[0]: page_overview, PAGES[1]: page_machine, PAGES[2]: page_failures, PAGES[3]: page_performance,
- PAGES[4]: page_monitoring, PAGES[5]: page_data}[page]()
+{
+    "Overview": page_overview,
+    "Machines": page_machine,
+    "Failures and errors": page_failures,
+    "Model accuracy": page_performance,
+    "System architecture": page_architecture,
+    "Model updates": page_monitoring,
+    "Add data": page_data,
+}[page]()
