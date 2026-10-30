@@ -723,7 +723,7 @@ def page_performance():
         nice = {"model": "Model", "threshold_from_val": "Alert level", "test_pr_auc": "PR-AUC", "test_precision": "Precision",
                 "test_recall": "Recall", "test_f1": "F1", "test_accuracy": "Accuracy", "test_FP": "False alarms", "test_FN": "Missed"}
         st.dataframe(t[cols].rename(columns=nice), hide_index=True, width="stretch")
-        st.caption("The 'dummy' row is a model that guesses blindly. It still scores high on accuracy because failures are rare, so accuracy alone can be misleading. Precision and recall tell the real story. Precision: when we raise an alert, how often is it right? Recall: of all real failures, how many did we catch?")
+       
     imgs = [FIG / n for n in ("eval_pr_curves.png", "eval_confusion_matrix.png", "eval_feature_importance.png") if (FIG / n).exists()]
     if imgs:
         for col, p in zip(st.columns(len(imgs)), imgs):
